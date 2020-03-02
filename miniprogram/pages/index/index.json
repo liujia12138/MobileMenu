@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "mp-tabs": "../../components/tabs/tabs",
+    "focus-item": "../../components/focus/index"
+  }
+}
