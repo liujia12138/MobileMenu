@@ -1,10 +1,11 @@
-// pages/mine.js
+// pages/chooseLib/chooseLib.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+
   },
 
   /**

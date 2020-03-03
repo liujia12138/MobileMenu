@@ -1,3 +1,35 @@
-<view>
-
+<view class="focus-bar">
+  <view class='focus-item' wx:for="{{dataList}}" wx:key="{{sort}}">
+    <view class='user-info'>
+      <image class='focus-avatar' src="{{item.avatarUrl}}"></image>
+      <text class='username'>{{item.username}}</text>
+    </view>
+    <view class="pics-box">
+      <swiper class='pic-swiper'>
+        <swiper-item wx:for="{{item.pics}}" wx:for-item='pic' wx:key='{{index}}'>
+          <image src='{{pic}}'></image>
+        </swiper-item>
+      </swiper>
+    </view>
+    <view class='action-bar'>
+      <view class="action-item">
+        <image class='action-icon' src='../../images/icon/star.png'></image>
+        <text>{{item.collect}}</text>
+      </view>
+      <view class="action-item">
+        <image class='action-icon' src='../../images/icon/comment.png'></image>
+        <text>{{item.comment}}</text>
+      </view>
+      <view class="action-item">
+        <image class='action-icon' src='../../images/icon/favour.png'></image>
+        <text>{{item.favour}}</text>
+      </view>
+    </view>
+    <view class='article-info'>
+      <text class='title'>{{item.title}}</text>
+      <view class='cont'>
+        <text>{{item.content}}</text>
+      </view>
+    </view>
+  </view>
 </view>

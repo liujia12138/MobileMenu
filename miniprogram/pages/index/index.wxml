@@ -1,21 +1,23 @@
 <!--index.wxml-->
 <view class="container">
-<focus-item></focus-item>
-<mp-tabs 
-  tabs="{{tabs}}" 
-  activeTab="{{activeTab}}" 
-  swiperClass="weui-tabs-swiper"
-  bindtabclick="onTabCLick"
-  bindchange="onChange"
-  activeClass="tab-bar-title__selected"
->
-  <block wx:for="{{tabs}}" wx:key="title">
-    <view class="tab-content" slot="tab-content-{{index}}" > {{item.title}}</view>
-  </block>
-</mp-tabs>
-  <swiper class="{{swiperClass}}" current="{{activeTab}}" duration="{{duration}}" bindchange="handleSwiperChange">
-    <swiper-item wx:if="{{activeTab == 1}}" >
-    食谱
-    </swiper-item>
-  </swiper>
+  <mp-tabs tabs="{{tabs}}" activeTab="{{activeTab}}" swiperClass="weui-tabs-swiper" bindtabclick="onTabCLick" bindchange="onChange" activeClass="tab-bar-title__selected">
+    <block wx:for="{{tabs}}" wx:key="title">
+      <view class="tab-content" slot="tab-content-{{index}}"> {{item.title}}</view>
+    </block>
+  </mp-tabs>
+  <view class='swiper-container'>
+    <swiper class="{{swiperClass}}" duration="{{duration}}" bindchange="handleSwiperChange"  style='height: {{swiperHeight}};'>
+      <block wx:if="{{activeTab == 0}}">
+        <swiper-item>
+          <focus-item dataList="{{dataList}}"></focus-item>
+        </swiper-item>
+      </block>
+      <block wx:elif="{{activeTab == 1}}">
+        <swiper-item>
+          <view>111</view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
 </view>
