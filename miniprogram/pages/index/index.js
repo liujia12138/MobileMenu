@@ -1,6 +1,5 @@
 //index.js
 const app = getApp()
-// const indexApi = require("../api/index.js") 
 import {
   focusList,
   focus2
@@ -10,14 +9,14 @@ Page({
     nbFrontColor: '#000000',
     nbBackgroundColor: '#ffffff',
     swiperClass: "index-tab-swiper",
-    activeTab: 0,
+    activeTab: 1,
     dataList: null,
     itemHieght: 756,
     swiperHeight: 0
   },
   onLoad() {
     this.getFocus();
-    const titles = ['关注', '我的一周食谱']
+    const titles = ['', '我的一周食谱']
     const tabs = titles.map(item => ({
       title: item
     }))
@@ -79,7 +78,6 @@ Page({
     this.setData({
       activeTab: index
     });
-    console.log(this)
   },
   onChange(e) {
     const index = e.detail.index

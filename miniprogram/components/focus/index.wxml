@@ -16,10 +16,10 @@
         <image class='action-icon' src='../../images/icon/star.png'></image>
         <text>{{item.collect}}</text>
       </view>
-      <view class="action-item">
+      <!-- <view class="action-item">
         <image class='action-icon' src='../../images/icon/comment.png'></image>
         <text>{{item.comment}}</text>
-      </view>
+      </view> -->
       <view class="action-item">
         <image class='action-icon' src='../../images/icon/favour.png'></image>
         <text>{{item.favour}}</text>

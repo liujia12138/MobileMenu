@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "mp-tabs": "../../components/tabs/tabs",
-    "focus-item": "../../components/focus/index"
+    "focus-item": "../../components/focus/index",
+    "week-menu": "../../components/weekmenu/index"
   }
 }

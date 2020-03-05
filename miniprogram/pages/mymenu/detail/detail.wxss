@@ -1,0 +1,5 @@
+@import "../add/add.wxss";
+.delete-btn{
+  background: #eb523e;
+  color: #fff;
+}

@@ -1,2 +1,6 @@
-<!--components/weekmenu/index.wxml-->
-<text>components/weekmenu/index.wxml</text>
+<view class='container'>
+<view class='no-data' bindtap='makeMenu'>
+  <view>暂无食谱</view>
+  <view>点击定制</view>
+</view>
+</view>

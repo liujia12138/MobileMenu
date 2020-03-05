@@ -1,0 +1,38 @@
+/* form */
+
+.form{
+  width: 100%;
+  background: #fff;
+}
+.form-item{
+  height: 88rpx;
+  border-bottom: 1px solid #eee;
+}
+.weui-cells__title{
+  float: left;
+  width: 20%;
+  height: 100%;
+  line-height: 88rpx;
+  text-indent: 10rpx;
+}
+.weui-cells{
+  width: 80%;
+  float: left;
+  height: 100%;
+}
+.weui-cell_input, .weui-input, .weui-picker, .picker-text{
+  height: 100%;
+  line-height: 88rpx;
+}
+.weui-cell_textarea{
+  height: 180rpx;
+  margin-top: 20rpx;
+}
+.weui-textarea{
+  height: 100%;
+}
+
+.save-btn{
+  background: #afcd50;  
+  color: #fff;
+}

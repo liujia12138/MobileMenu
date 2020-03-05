@@ -154,3 +154,12 @@ page {
   line-height: 36rpx;
   word-break: break-all;
 }
+.bottom-btn{
+  width: 100%;
+  position: fixed;
+  bottom: -2rpx;
+  border: none;
+  border-radius: 0;
+  height: 120rpx;
+  line-height: 110rpx;
+}

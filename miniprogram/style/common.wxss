@@ -38,3 +38,22 @@ page{
 mp-tabs{
   width: 100%;
 }
+
+.nav-hover-cal{
+  background: none;
+}
+
+.fl-left{
+  float: left;
+}
+.fl-right{
+  float: right
+}
+.bule-b{
+  background: rgb(65, 141, 204);
+}
+.green-b{
+  background: rgb(31, 175, 96)
+}
+
+

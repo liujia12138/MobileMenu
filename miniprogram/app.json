@@ -1,10 +1,13 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/mine",
-    "pages/mine/mine",
+    "pages/mymenu/index",
+    "pages/mine/index",
     "components/tabs/tabs",
-    "components/focus/index"
+    "components/focus/index",
+    "pages/mymenu/add/add",
+    "pages/find/index",
+    "pages/mymenu/detail/detail"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -23,13 +26,13 @@
         "selectedIconPath": "images/icon/index_sel.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/find/index",
         "text": "发现",
         "iconPath": "images/icon/find.png",
         "selectedIconPath": "images/icon/find_sel.png"
       },
       {
-        "pagePath": "pages/mine/mine",
+        "pagePath": "pages/mine/index",
         "text": "我的",
         "iconPath": "images/icon/mine.png",
         "selectedIconPath": "images/icon/mine_sel.png"

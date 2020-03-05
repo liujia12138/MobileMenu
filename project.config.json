@@ -7,11 +7,13 @@
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
 		"enhance": true
 	},
 	"appid": "wx65177ab74c5febca",
 	"projectname": "17high",
-	"libVersion": "2.8.1",
+	"libVersion": "2.10.2",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"condition": {
@@ -36,7 +38,7 @@
 				{
 					"id": -1,
 					"name": "db guide",
-					"pathName": "pages/databaseGuide/databaseGuide"
+					"pathName": "pages/index/index"
 				}
 			]
 		}

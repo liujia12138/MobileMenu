@@ -1,0 +1,27 @@
+<!--miniprogram/pages/wode/index.wxml-->
+<view class='container'>
+  <!-- <view class='get-user-info'>
+    <button open-type='getUserInfo' bindgetuserinfo='getUser'>点击登录</button>
+  </view> -->
+  <view class='get-user-info' wx:if='{{!user}}'>
+    <button open-type='getUserInfo' bindgetuserinfo='getUser'>点击登录</button>
+  </view>
+
+  <view class='user-info' wx:else>
+    <image class='avatar-img' src='{{user.avatarUrl}}'></image>
+    <view class='nickName'>
+      <text>{{user.nickName}}</text>
+    </view>
+  </view>
+  <view class='menu'>
+    <view class='menu-list' wx:for='{{menuList}}' wx:for-item='menu' wx:key='{{menu.key}}' data-key='{{menu.key}}'>
+      <navigator url='{{menu.router}}' open-type="navigate" hover-class='nav-hover-cal'>
+        <image class='menu-icon' src='{{menu.icon}}'></image>
+        <view class='menu-text'>{{menu.text}}</view>
+        <image class='right' src='../../images/icon/right.png'></image>
+      </navigator>
+    </view>
+  </view>
+  <view>
+  </view>
+</view>

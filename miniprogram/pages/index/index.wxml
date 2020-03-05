@@ -14,7 +14,7 @@
       </block>
       <block wx:elif="{{activeTab == 1}}">
         <swiper-item>
-          <view>111</view>
+          <week-menu></week-menu>
         </swiper-item>
       </block>
     </swiper>

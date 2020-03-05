@@ -1,0 +1,23 @@
+<!--miniprogram/pages/mymenu/index.wxml-->
+<view class='container'>
+  <view class='menu-item' wx:for='{{menuList}}' wx:key='{{index}}' bindtap='detail'>
+    <navigator url='./detail/detail?id={{item.id}}' hover-class='nav-hover-cal'>
+      <view class='fl-left pic-box'>
+        <image class='menu-pic' wx:if='{{item.pic}}' src='{{item.pic}}'></image>
+        <view class='no-pic' wx:else>暂无图片</view>
+      </view>
+      <view class='fl-left menu-text'>
+        <view>
+          <text class='name'>{{item.name}}</text>
+          <text class='type {{ item.type == "1" ? "bule-b" : "green-b" }}'>{{item.typename}}</text>
+        </view>
+        <view class='cont'>
+          <text>{{item.material}}</text>
+        </view>
+      </view>
+    </navigator>
+  </view>
+  <navigator url='./add/add'>
+    <view class='add-menu'></view>
+  </navigator>
+</view>
