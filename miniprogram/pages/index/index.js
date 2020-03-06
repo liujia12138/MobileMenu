@@ -16,7 +16,7 @@ Page({
   },
   onLoad() {
     this.getFocus();
-    const titles = ['', '我的一周食谱']
+    const titles = ['关注', '我的一周食谱']
     const tabs = titles.map(item => ({
       title: item
     }))
