@@ -26,7 +26,7 @@
       </view>
     </view>
     <view class='article-info'>
-      <text class='title'>{{item.title}}</text>
+      <text class='title'>{{item.name}}</text>
       <view class='cont'>
         <text>{{item.content}}</text>
       </view>

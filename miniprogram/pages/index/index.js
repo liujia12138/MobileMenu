@@ -9,7 +9,7 @@ Page({
     nbFrontColor: '#000000',
     nbBackgroundColor: '#ffffff',
     swiperClass: "index-tab-swiper",
-    activeTab: 1,
+    activeTab: 0,
     dataList: null,
     itemHieght: 756,
     swiperHeight: 0
@@ -29,10 +29,20 @@ Page({
 
   },
   getFocus() {
-    app.api.getRequest("/", {
-      page: 0
+    app.api.getRequest("/imenu-api/meals/find", {
+      index: 1,
+      size:10
     }).then(res => {
-      console.log("aaa");
+      if(res.data.code === 200){
+        const dataList = res.data.data.list;
+        const swiperHeight = this.data.itemHieght * dataList.length;
+        this.setData({
+          dataList,
+          swiperHeight: this.data.itemHieght * dataList.length + "rpx"
+        });
+      }else{
+
+      }
 
     }).catch(res => {
       const dataList = [{

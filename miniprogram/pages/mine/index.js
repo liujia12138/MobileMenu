@@ -45,10 +45,14 @@ Page({
     }
   },
 
+  /**
+   *  未登录-点击登录按钮操作
+   */
   getUser(e) {
     const self = this;
     var userinfos = e.detail.userInfo;
     if (userinfos) {
+      //获取user信息,avatarUrl,nickName...
       this.setData({
         user: userinfos
       });
@@ -58,6 +62,8 @@ Page({
         userInfo,
         iv
       } = e.detail;
+      console.log(e, 'e',self)
+      //调后端登录接口，获取token
       app.api.postRequest("/imenu-api/login", {
         code: self.code,
         encryptedData,
@@ -83,16 +89,17 @@ Page({
           userInfo,
           iv
         } = res;
-        app.api.postRequest('/imenu-api/login', {
-          code,
-          encryptedData,
-          iv,
-        }).then(res => {
-          console.log(`后台交互拿回数据:`, res);
-          // 获取到后台重写的session数据，可以通过vuex做本地保存
-        }).catch(err => {
-          console.log(`自动请求api失败 err:`, err);
-        })
+        console.log(res, self.code)
+        // app.api.postRequest('/imenu-api/login', {
+        //   code,
+        //   encryptedData,
+        //   iv,
+        // }).then(res => {
+        //   console.log(`后台交互拿回数据:`, res);
+        //   // 获取到后台重写的session数据，可以通过vuex做本地保存
+        // }).catch(err => {
+        //   console.log(`自动请求api失败 err:`, err);
+        // })
       },
       
       fail(err) {

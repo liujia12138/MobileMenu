@@ -7,7 +7,9 @@
 const config = require("./config.js")
 class request {
   constructor() {
-    this._header = {}
+    this._header = {
+      "content-type": "text/plain; charset=utf-8"
+    }
   }
 
   /**
