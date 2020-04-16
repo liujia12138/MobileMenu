@@ -8,8 +8,13 @@ const config = require("./config.js")
 class request {
   constructor() {
     this._header = {
-      "content-type": "text/plain; charset=utf-8"
+      // "content-type": "text/plain; charset=utf-8"
     }
+    const token = wx.getStorageSync('token');
+    if(token){
+      this._header["x-api-token"] = token
+    }
+    
   }
 
   /**

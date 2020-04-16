@@ -24,25 +24,26 @@ Page({
    */
   onLoad: function() {
     const self = this;
+    //获取用户信息
     const user = wx.getStorageSync('userIdEnc');
-    wx.login({
-      success(res) {
-        if (res.code) {
-          self.code = res.code;
-          self.wxGetUserInfo(res.code);
-        }
-      },
-    });
-    const data = {
-      code: "0435m1ey0wagdb1FmDdy0snaey05m1e4",
-      encryptedData: "pJrsa/NmLQJEXxSDbb12YLM4A+udD9Ym5lYlCr4LSDmnS+OF/35W2j6YDYgasJZ9WwBYJOcnd4ayMe6Ngk/7AMxYGK2EoLPikAPiEnCgxS/vqDTB5RiazRMnPOtmfeE0Q3KFIzRfHDjN9GOgmC4ozcTCPMvaUD7A5cHk4JDFzcTLnPM6of2Kg/PJE+OQP1ZbN8QpERm92sk26P8oMeZGEbBiva7SD0xla/GTsq1UypFL3yEQHVuaBYXc2jlAN+w0FtJoxfdUqNOqpKRlyQ6SQbyXzOZkI+AV+y6RbLw2ASJUGjzRM127PnrSTwte9/zofpNXMNQ/9t1liCdm5poGx0ZAMu3Tlx5UQJ780+KEo444Udh8iRZASprOIX50Ar7IuMYlYROM0QWQ6xv7ZXwucKsU7rqtLJhcScJ1tuIr3CEiyOP6jpDkq3dkgorgJLLcT3BdhOfsb+ymj9PApmpeeD7zZLvTEDUFERl1tDkK+X4=",
-      iv: "bHj2CujnytSWauUmWWutjA=="
-    }
+    //用户信息存在，放到data中
     if (user) {
       this.setData({
         user: JSON.parse(user)
       });
+      return user;
     }
+    //调用wx.login，获取登录凭证code
+    wx.login({
+      success(res) {
+        if (res.code) {
+          console.log(res.code, 'code')
+          self.code = res.code;
+          // self.wxGetUserInfo(res.code);
+        }
+      },
+    });
+    
   },
 
   /**
@@ -56,21 +57,17 @@ Page({
       this.setData({
         user: userinfos
       });
-      wx.setStorageSync('userIdEnc', JSON.stringify(userinfos));
-      let {
-        encryptedData,
-        userInfo,
-        iv
-      } = e.detail;
+      //userinfo缓存
+      wx.setStorage('userIdEnc', JSON.stringify(userinfos));
       console.log(e, 'e',self)
       //调后端登录接口，获取token
-      app.api.postRequest("/imenu-api/login", {
+      app.api.postRequest("/auth/miniProgramLogin", {
         code: self.code,
-        encryptedData,
-        iv
+        encryptedData: e.detail.encryptedData,
+        iv: e.detail.iv
       }).then((res) => {
         //token
-
+        // wx.setStorage('token', JSON.stringify(userinfos));
       }).catch((res) => {
         console.log(res, "err")
       })
@@ -81,6 +78,8 @@ Page({
 
   wxGetUserInfo(code) {
     const self = this;
+    // wx.getUserInfo获取用户信息
+     
     wx.getUserInfo({
       withCredentials: true,
       success(res) {
@@ -90,16 +89,16 @@ Page({
           iv
         } = res;
         console.log(res, self.code)
-        // app.api.postRequest('/imenu-api/login', {
-        //   code,
-        //   encryptedData,
-        //   iv,
-        // }).then(res => {
-        //   console.log(`后台交互拿回数据:`, res);
-        //   // 获取到后台重写的session数据，可以通过vuex做本地保存
-        // }).catch(err => {
-        //   console.log(`自动请求api失败 err:`, err);
-        // })
+        app.api.postRequest('/', {
+          code,
+          encryptedData,
+          iv,
+        }).then(res => {
+          console.log(`后台交互拿回数据:`, res);
+          // 获取到后台重写的session数据，可以通过vuex做本地保存
+        }).catch(err => {
+          console.log(`自动请求api失败 err:`, err);
+        })
       },
       
       fail(err) {

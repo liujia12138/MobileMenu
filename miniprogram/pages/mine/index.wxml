@@ -3,16 +3,21 @@
   <!-- <view class='get-user-info'>
     <button open-type='getUserInfo' bindgetuserinfo='getUser'>点击登录</button>
   </view> -->
+
+  <!-- 点击登录 -->
   <view class='get-user-info' wx:if='{{!user}}'>
     <button open-type='getUserInfo' bindgetuserinfo='getUser'>点击登录</button>
   </view>
 
+  <!-- 展示用户信息 -->
   <view class='user-info' wx:else>
     <image class='avatar-img' src='{{user.avatarUrl}}'></image>
     <view class='nickName'>
       <text>{{user.nickName}}</text>
     </view>
   </view>
+
+  <!-- 用户操作列表menu -->
   <view class='menu'>
     <view class='menu-list' wx:for='{{menuList}}' wx:for-item='menu' wx:key='{{menu.key}}' data-key='{{menu.key}}'>
       <navigator url='{{menu.router}}' open-type="navigate" hover-class='nav-hover-cal'>
